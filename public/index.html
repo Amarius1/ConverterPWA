@@ -1,0 +1,145 @@
+
+<html>
+<head>
+<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Page Title</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css'>
+	<link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
+	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css'>
+	<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+	<script type="text/javascript" src="scripts/jquery-3.3.1.js"></script>
+
+    <link rel="manifest" href="/manifest.json">
+	<style>
+	.font1
+	{
+	font-family: 'Roboto Mono', monospace;
+	}
+	/* label focus color */
+   .input-field input[type=text]:focus + label {
+     color: #2196f3;
+	}
+	/* label underline focus color */
+   .input-field input[type=text]:focus {
+     border-bottom: 1px solid #2196f3;
+     box-shadow: 0 1px 0 0 #2196f3;
+   }
+	</style>
+	<!-- Add to home screen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Template PWA">
+    <link rel="apple-touch-icon" href="images/icons/icon-152x152.png">
+    <!-- Windows -->
+    <meta name="msapplication-TileImage" content="images/icons/icon-144x144.png">
+    <meta name="msapplication-TileColor" content="#2F3BA2">
+
+    <link rel="icon" type="image/png" href="images/icons/icon-144x144.png">
+</head>
+<body onload="init()">
+	<div style="position: relative; top: 50px;" class="container">
+	
+	<center><a style="font-size:2vw;" class="font1">Converter</a></center>
+    </br>
+	<label for="USD"> USD </label>
+    <input type="text" id="USD" size="10" value="0" onchange="usdfunc()" />
+   
+
+    </br>
+	<label for="EUR"> EUR </label>
+    <input type="text" id="EUR" size="10" value="0" onchange="eurfunc()" />
+    
+
+    </br>
+	<label for="INR"> INR </label>
+    <input type="text" id="INR" size="10" value="0" onchange="inrfunc()" />
+    
+
+    </br>
+	<label for="YEN"> YUAN </label>
+    <input type="text" id="YEN" size="10" value="0" onchange="yenfunc()" />
+	
+	<label for="GBP"> GBP </label>
+	<input type="text" id="GBP" size="10" value="0" onchange="gbpfunc()"/>
+    
+	<label for="RON"> RON </label>
+	<input type="text" id="RON" size="10" value="0" onchange="ronfunc()"/>
+    
+      
+	</div>
+	 <script type="text/javascript" src="scripts/app.js"></script>
+</body>
+<script>
+var gbp, usd, eur, cad, aud;
+function init()
+{
+    usd = document.getElementById("USD");
+    eur = document.getElementById("EUR");
+    inr = document.getElementById("INR");
+    yen = document.getElementById("YEN");
+    gbp = document.getElementById("GBP");
+	ron = document.getElementById("RON");
+}
+
+function gbpfunc()
+{
+    usd.value = parseFloat(gbp.value) * 1.31;
+    eur.value = parseFloat(gbp.value) * 1.12;
+    inr.value = parseFloat(gbp.value) * 94.24;
+    yen.value = parseFloat(gbp.value) * 8.99;
+	ron.value = parseFloat(gbp.value) * 5.22;
+}
+
+function eurfunc()
+{
+    gbp.value = parseFloat(eur.value) * 0.89;
+    usd.value = parseFloat(eur.value) * 1.16;
+    inr.value = parseFloat(eur.value) * 83.89;
+    yen.value = parseFloat(eur.value) * 8.01;
+	ron.value = parseFloat(eur.value) * 4.64;
+}
+
+function inrfunc()
+{
+    gbp.value = parseFloat(inr.value) * 0.011;
+    usd.value = parseFloat(inr.value) * 0.014;
+    eur.value = parseFloat(inr.value) * 0.012;
+    yen.value = parseFloat(inr.value) * 0.096;
+	ron.value = parseFloat(inr.value) * 0.055;
+}
+
+function yenfunc()
+{
+    gbp.value = parseFloat(yen.value) * 0.11;
+    usd.value = parseFloat(yen.value) * 0.15;
+    eur.value = parseFloat(yen.value) * 0.12;
+    inr.value = parseFloat(yen.value) * 10.48;    
+	ron.value = parseFloat(yen.value) * 0.58; 
+}
+
+function usdfunc()
+{
+    gbp.value = parseFloat(usd.value) * 0.77;
+    eur.value = parseFloat(usd.value) * 0.86;
+    inr.value = parseFloat(usd.value) * 72.10;
+    yen.value = parseFloat(usd.value) * 6.87;
+	ron.value = parseFloat(usd.value) * 3.99;
+}
+
+function ronfunc()
+{
+    gbp.value = parseFloat(ron.value) * 0.19;
+    eur.value = parseFloat(ron.value) * 0.22;
+    inr.value = parseFloat(ron.value) * 18.06;
+    yen.value = parseFloat(ron.value) * 1.72;
+	usd.value = parseFloat(ron.value) * 0.25;
+}
+
+init();
+</script>
+</html>
